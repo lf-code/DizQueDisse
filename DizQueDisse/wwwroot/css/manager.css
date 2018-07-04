@@ -1,0 +1,236 @@
+﻿@import 'core.css';
+
+.header-logo h1 span{
+    color: orange;
+}
+
+#featured-services .top-title {
+    margin: 0px 20px 20px 20px;
+    justify-content: space-between;
+}
+
+.logout button{
+    margin-left:20px;
+    background:none;
+    cursor:pointer;
+    color: orange;
+    border: solid orange 1px;
+    font-size:14px;
+    padding: 4px 8px;
+    /*font-weight:bold;*/
+}
+
+.mytweet:nth-child(even), .mytweet:nth-child(odd) {
+    align-self: flex-start;
+}
+
+.tweet-wrapper{
+    flex-shrink:0;
+    flex-grow:0;
+    overflow-y:auto;
+    display:flex;
+    flex-direction:row;
+    justify-content:center;
+    align-items: center;
+}
+
+/* ---------- CUSTOM RADIO BUTTON ---------- */
+
+.tweet-wrapper form label {
+    color: grey;
+}
+
+.tweet-wrapper form{
+    margin:0;
+    padding:0;
+    margin-left:5px;
+}
+
+/* Customize the label (the container) */
+.my-radio-button {
+    /*width:150px;*/
+    margin:10px;
+    position: relative;
+}
+
+    .my-radio-button label {
+        cursor: pointer;
+        font-weight: bold;
+        font-size: 16px;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+/* Hide the browser's default radio button */
+.my-radio-button input {
+    position: absolute;
+    opacity: 0;
+}
+
+.my-radio-button label .checkmark {
+    visibility: hidden;
+    font-weight: bold;
+}
+
+.my-radio-button input:checked ~ label .checkmark{
+    visibility: visible;
+    color: green;
+}
+
+.my-radio-button input:checked ~ label {
+    visibility: visible;
+    color: white;
+}
+
+.my-radio-button input:not(:checked) ~ label:hover .checkmark {
+    visibility: visible;
+    color: white;
+}
+
+.my-radio-button input:not(:checked) ~ label:hover{
+    color: white;
+}
+
+
+/* ----- MENU ----- */
+
+#menu-table {
+    margin: auto;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#menu-table td:nth-child(1) {
+    width: 120px;
+}
+
+#menu-table tr:not(:last-child) {
+    border-bottom: 1px solid rgba(200,200,200,0.5);
+}
+
+#update-button {
+    width: 100%;
+    color: rgb(29,161,243);
+    border: 1px solid rgb(29,161,243);
+    background: none;
+    margin-top: 10px;
+    padding:5px 0;
+}
+
+#update-button:hover {
+    color: white;
+    cursor:pointer;
+    background-color: rgb(29,161,243);
+}
+
+#menu-table tr:last-child td {
+    text-align: center;
+}
+
+#menu-table th {
+    text-align: center;
+    color: rgb(29,161,243);
+    font-weight: bold;
+    padding-bottom: 10px;
+    font-size: 22px;
+}
+
+.update-msg {
+    display:none; /*fades in*/
+    margin-top: 5px;
+    text-align: center;
+    color: rgb(29,161,243);
+}
+
+/* ---------- LOADBY ---------- */
+
+.loadby-container{
+    margin-bottom:50px;
+    height: 200px;
+    width:100%;
+
+}
+.loadby {
+    width: 70%;
+    margin: auto;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.loadby-title {
+    text-align: center;
+    color: rgb(29,161,243);
+    padding: 5px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+    .loadby label {
+        position: relative;
+        color: white;
+        cursor: pointer;
+        text-wrap: none;
+        overflow-y: hidden;
+        border: 1px solid rgb(29,161,243);
+        display: block;
+        width:100%;
+    }
+
+.loadby label>input {
+    color: white;
+    position:absolute;
+    top: 0px;
+    visibility:hidden;
+}
+
+.loadby label span.radio-label {
+    display: block;
+    padding:5px 0;
+    color: lightgray;
+    text-align:center;
+    width:100%;
+}
+
+.loadby label input:checked~span {
+    font-weight:bold;
+    color: white;
+    background-color: rgb(29,161,243);
+}
+
+.loadby label span.secondary-input {
+    display: block;
+    background-color: rgb(29,161,243);
+    text-align: center;
+    width: 100%;
+    height: 0;
+    overflow: hidden;
+    visibility:hidden;
+}
+
+.loadby label span.secondary-input *{
+    display:block;
+    width:80%;
+    margin: 5px auto;
+    text-align:center;
+}
+
+.loadby label input:checked ~ span.secondary-input {
+    visibility: visible;
+    height: 40px;
+    -webkit-transition: height 0.5s; /* Safari */
+    transition: height 0.5s;
+}
+
+#loadby-button {
+    width: 70%;
+    display: block;
+    margin: auto;
+    border: 1px solid rgb(29,161,243);
+    background: none;
+    cursor: pointer;
+    color: rgb(29,161,243);
+    padding: 5px 0;
+    margin-top: 10px;
+}
+
+#loadby-button:hover {
+    color: white;
+    background-color: rgb(29,161,243);
+}

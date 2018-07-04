@@ -1,0 +1,7 @@
+﻿@model string
+@{
+}
+
+<div @(Model == "0" ? "id=tweet-wrapper-template":"")  @(Model == "0" ? "" :"data-tweetId="+Model ) class="@(Model == "0" ? "" :"tweet-wrapper") donotshow">
+    <div class="mytweet" data-tweetid="@Model"></div>
+</div>

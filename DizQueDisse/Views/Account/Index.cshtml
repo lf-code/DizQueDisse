@@ -1,0 +1,26 @@
+﻿
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@model DizQueDisse.Models.LoginViewModel
+@{
+
+}
+<!doctype html>
+<html>
+    <head>
+        <script defer src="https://use.fontawesome.com/releases/v5.0.10/js/all.js" integrity="sha384-slN8GvtUJGnv6ca26v8EzVaR9DC58QEwsIk9q1QXdCU8Yu8ck/tL/5szYlBbqmS+" crossorigin="anonymous"></script>
+        <link href="/css/login.css" rel="stylesheet" />
+    </head>
+    <body>
+        <div class="container">
+            <div class="title">
+                <span><i class="fas fa-lock fa-8x"></i></span>
+                <h2>Autenticar</h2>
+            </div>
+            <form asp-route-returnurl="@ViewData["ReturnUrl"]" asp-controller="Account" asp-action="Login" method="post">
+                <input asp-for="UserName" placeholder="username" />
+                <input asp-for="Password" placeholder="password" />
+                <button type="submit">Login</button>
+            </form>
+        </div>
+    </body>
+</html>

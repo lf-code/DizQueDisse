@@ -1,0 +1,109 @@
+﻿
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@using DizQueDisse.Models;
+<!doctype html>
+<html>
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="~/js/site_core.js"></script>
+        <script src="~/js/manager.js"></script>
+
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous">
+
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Montserrat:300,400,500,700" rel="stylesheet">
+
+        <link href="/css/manager.css" rel="stylesheet" />
+
+    </head>
+    <body>
+        <div class="top-container" style="background-image: url('images/manager.jpg');">
+
+            <header>
+                <div class="header-logo">
+                    <h1>DizQueDisse <span>MANAGER</span></h1>
+                </div>
+            </header>
+
+            <section class="main-container">
+
+                <div class="tweets-container">
+
+                    @await Html.PartialAsync("_managerTweetWrapperTemplate", new TweetIdAndStateVM()) @*TEMPLATE*@
+                    @foreach (TweetIdAndStateVM t in Model)
+                    {
+                        @await Html.PartialAsync("_managerTweetWrapperTemplate", t);
+                    }
+                    <div class="loadmore">
+                        <button title="ver mais tweets" style="display:none"><i class="fas fa-ellipsis-h"></i></button>
+                        <span class="wait"><i class="fas fa-spinner fa-spin"></i></span>
+                    </div>
+                </div>
+
+            </section>
+
+            <section id="featured-services">
+                <div class="top-title">
+                    <span><i class="fas fa-cogs"></i></span>
+                    <h2>Menu</h2>
+                    <form class="logout" asp-controller="Account" asp-action="Logout" method="post">
+                        <button type="submit" httpbutton>Logout</button>
+                    </form>
+                </div>
+                <div class="loadby-container">
+                    <div class="loadby">
+                        <div class="loadby-title">Load Tweets By</div>
+                        <label for="loadby-radio-ps">
+                            <input id="loadby-radio-ps" type="radio" name="loadby-radio" value="state" checked />
+                            <span class="radio-label">PublishingState</span>
+                            <span class="secondary-input">
+                                <select>
+                                    @foreach (var kvp in (Dictionary<string, int>)ViewData["checkerOptions"])
+                                    {
+                                    <option value="@kvp.Value">@kvp.Key</option>
+                                    }
+                                </select>
+                            </span>
+                        </label>
+                        <label for="loadby-radio-un">
+                            <input id="loadby-radio-un" type="radio" name="loadby-radio" value="screenname" />
+                            <span class="radio-label">Username</span>
+                            <span class="secondary-input"><input type="text" /></span>
+                        </label>
+                        <label for="loadby-radio-id">
+                            <input id="loadby-radio-id" type="radio" name="loadby-radio" value="tweetid" />
+                            <span class="radio-label">TweetId</span>
+                            <span class="secondary-input"><input type="text" /></span>
+                        </label>
+                        <div><button id="loadby-button" httpbutton>Load</button></div>
+
+                    </div>
+                </div>
+                <div class="box">
+                    <table id="menu-table">
+                        <tbody>
+                            <tr><th colspan="2">Tweet States</th></tr>
+                            <tr>
+                                <td>Total</td>
+                                <td data-total="total">0</td>
+                            </tr>
+                            @foreach (var kvp in (Dictionary<string, int>)ViewData["checkerOptions"])
+                            {
+                                <tr>
+                                    <td>@kvp.Key</td>
+                                    <td data-state="@kvp.Value">0</td>
+                                </tr>
+                            }                           
+                            <tr><td colspan="2"><button id="update-button" httpbutton>Update</button></td></tr>
+                        </tbody>
+                    </table>
+                    <div class="messages"></div>
+                </div>
+            </section>
+        </div>
+
+    </body>
+</html>

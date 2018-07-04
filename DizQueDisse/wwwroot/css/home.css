@@ -1,0 +1,83 @@
+﻿@import 'core.css';
+
+.alpha {
+    font-size: 10px;
+    color: rgb(29,161,243);
+    letter-spacing: 0;
+}
+
+.tweet-wrapper {
+    width:100%;
+}
+
+.tweet-wrapper:nth-child(even) .mytweet{
+    float:right;
+}
+
+.tweet-wrapper:nth-child(odd) .mytweet {
+    float: left;
+}
+
+/* ---------- FEATURED SERVICES SECTION ---------- */
+
+
+
+#featured-services .box {
+    padding: 30px 20px;
+    margin-top:30px;
+}
+
+@media only screen and (max-width: 960px) {
+
+    #featured-services {
+        background-color: black;
+        overflow-y: hidden;
+        -webkit-transition: height 0.2s; /* Safari */
+        transition: height 0.2s;
+    }
+
+    #featured-services:not(:hover) {
+        height: 72px;
+        -webkit-transition: height .2s; /* Safari */
+        transition: height 0.2s;
+    }
+
+    #featured-services:not(:hover) .box {
+        display: none;
+    }
+
+}
+
+
+
+
+#featured-services h4 {
+    font-weight: 400;
+    margin: 10px 0 4px 0;
+    font-size: 22px;
+}
+
+#featured-services .twitter-link {
+    color: rgb(126,144,156);
+    margin: 0;
+    padding: 0;
+    font-size: 16px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#featured-services h4 a {
+    color: #fff;
+    text-decoration:none;
+}
+
+#featured-services h4 a:hover {
+    color: /*#18d26e*/ rgb(29,161,243);
+}
+
+#featured-services p {
+    font-family: "Montserrat", sans-serif;
+    font-size: 14px;
+    line-height: 26px;
+    color: white;
+    margin-bottom: 0;
+}

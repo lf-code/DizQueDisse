@@ -1,0 +1,19 @@
+﻿
+@model DizQueDisse.Models.TweetIdAndStateVM
+@{
+    var id =  Model.TweetId == null ? "0" :  Model.TweetId;
+}
+<div @(Model.TweetId == null ? "id=tweet-wrapper-template" : "") @(Model.TweetId == null ? "" : "data-tweetId=" + Model.TweetId ) @(Model.TweetId == null ? "" : "data-state=" + Model.PublishingState ) class="@(Model.TweetId == null ? "" :"tweet-wrapper") donotshow">
+    <div class="mytweet" data-tweetid="@id"></div>
+    <div>
+        <form id="form-checker-@id">
+            @foreach (var kvp in (Dictionary<string, int>)ViewData["checkerOptions"])
+            {
+                <div class="my-radio-button" data-state="@kvp.Key">
+                    <input class="form-check-input" type="radio" name="checker-@id" id="checker-@kvp.Key-@id" value="@kvp.Value" @(kvp.Value == 0 ? "checked" : "")>
+                    <label class="form-check-label" for="checker-@kvp.Key-@id">@kvp.Key <span class="checkmark"><i class="fas fa-check"></i></span></label>
+                </div>
+            }
+        </form>
+    </div>
+</div>
